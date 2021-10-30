@@ -16,7 +16,7 @@ $configData = Helper::applClasses();
   <div class="auth-inner row m-0">
     <!-- Brand logo-->
     <a class="brand-logo" href="javascript:void(0);">
-        <img class="img-fluid" src="{{asset('images/emplogo/Logo_mini.png')}}" alt="EMP Logo" />
+        <img class="img-fluid" src="{{asset('images/logo/Logo_mini.png')}}" alt="EMP Logo" />
       <!-- <svg viewBox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="28">
         <defs>
           <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%" y2="89.4879456%">
@@ -45,7 +45,7 @@ $configData = Helper::applClasses();
     <!-- /Brand logo-->
     <!-- Left Text-->
     <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
-      <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">\
+      <div class="w-100 d-lg-flex align-items-center justify-content-center px-5">
         @if($configData['theme'] === 'dark')
         <img class="img-fluid" src="{{asset('images/pages/register-v2-dark.svg')}}" alt="Register V2" />
         @else
@@ -61,7 +61,7 @@ $configData = Helper::applClasses();
           <!-- <form class="auth-register-form mt-2" action="/" method="GET"> -->
             <form class="auth-register-form mt-2" method="POST" action="{{ route('register') }}">
                 @csrf
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="register-username" class="form-label">Username</label>
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="register-username" name="name" placeholder="johndoe" aria-describedby="register-username" tabindex="1" autofocus value="{{ old('name') }}" />
             @error('name')
@@ -69,7 +69,7 @@ $configData = Helper::applClasses();
                 <strong>{{ $message }}</strong>
               </span>
             @enderror
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="register-email" class="form-label">Email</label>
             <input type="text" class="form-control @error('email') is-invalid @enderror" id="register-email" name="email" placeholder="john@ghrix.com" aria-describedby="register-email" tabindex="2" value="{{ old('email') }}" />

@@ -59,7 +59,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ] */
         [
-            'name' => 'required|string|between:2,255|regex:/^[a-zA-Z ]+$/',
+             //'name' => 'required|string|between:2,255|regex:/^[a-zA-Z ]+$/',
              'email' => 'required|string|email|max:255|unique:users|regex:/(.*)@ghrix\.com/i',
              //'password' => 'required|string|confirmed|min:8|max:50|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
              'password' => ['required', 'string', 'max:25', Password::min(8)
@@ -74,9 +74,9 @@ class RegisterController extends Controller
              ->symbols()],
          ],
          [
-             'name.required' => 'Name cannot be blank',
-             'name.regex' => 'Name contain alphabets only',
-             'name.between' => 'Name will start from 2 chars and not exceed 255 chars',
+             //'name.required' => 'Name cannot be blank',
+             //'name.regex' => 'Name contain alphabets only',
+             //'name.between' => 'Name will start from 2 chars and not exceed 255 chars',
              'email.required' => 'Email cannot be blank',
              'email.unique' => 'Email already exists',
              'email.regex' => 'Email is not with @ghrix.com',
@@ -99,7 +99,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return $user = User::create([
-            'name' => $data['name'],
+            //'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

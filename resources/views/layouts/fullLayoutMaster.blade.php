@@ -16,7 +16,7 @@ $configData = Helper::applClasses();
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>@yield('title') - EMP V2</title>
-  <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/logo/favicon.ico')}}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/logo/emplogosvg.svg')}}">
 
   {{-- Include core + vendor Styles --}}
   @include('panels/styles')
