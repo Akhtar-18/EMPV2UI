@@ -14,6 +14,7 @@ use Illuminate\Validation\Rules\Password;
 use App\Notifications\NewUser;
 use App\Notifications\UserNotify;
 use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Redirect;
 
 class RegisterController extends Controller
 {
@@ -55,7 +56,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data,
+        return $validator = Validator::make($data,
         /*[
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -91,6 +92,7 @@ class RegisterController extends Controller
              'password_confirmation.same' => 'Password confirmation does not match'
          ]
     );
+
     }
 
     /**
@@ -110,7 +112,7 @@ class RegisterController extends Controller
         //Notification::send($user, new UserNotify($user));
 
 
-        if($user)
+        /*if($user)
         {
             $user->notify(new UserNotify($user));
 
@@ -122,7 +124,7 @@ class RegisterController extends Controller
 
         if ($admin) {
         $admin->notify(new NewUser($user));
-        }
+        } */
 
 
     }

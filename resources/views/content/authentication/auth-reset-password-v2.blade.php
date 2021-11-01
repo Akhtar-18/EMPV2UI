@@ -43,7 +43,7 @@ $configData = Helper::applClasses();
 
         <div class="form-group">
           <label for="email" class="form-label">Email</label>
-          <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="john@example.com" aria-describedby="email" tabindex="1" autofocus value="{{ $email ?? old('email') }}" />
+          <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="john@ghrix.com" aria-describedby="email" tabindex="1" autofocus value="{{ $email ?? old('email') }}" />
             @error('email')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
@@ -71,12 +71,17 @@ $configData = Helper::applClasses();
           <div class="d-flex justify-content-between">
             <label for="reset-password-confirm">Confirm Password</label>
           </div>
-          <div class="input-group input-group-merge form-password-toggle">
-            <input type="password" class="form-control form-control-merge" id="reset-password-confirm" name="password_confirmation" autocomplete="new-password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="reset-password-confirm" tabindex="3" />
+          <div class="input-group input-group-merge form-password-toggle @error('password_confirmation') is-invalid @enderror">
+            <input type="password" class="form-control form-control-merge @error('password_confirmation') is-invalid @enderror" id="reset-password-confirm" name="password_confirmation" autocomplete="new-password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="reset-password-confirm" tabindex="3" />
             <div class="input-group-append">
               <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
             </div>
           </div>
+          @error('password_confirmation')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
         </div>
         <button type="submit" class="btn btn-primary btn-block" tabindex="4">Set New Password</button>
           </form>

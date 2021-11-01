@@ -59,8 +59,14 @@ $configData = Helper::applClasses();
     <!-- Login-->
     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
       <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-        <h2 class="card-title font-weight-bold mb-1">Welcome to EMP V2</h2>
+         <h2 class="card-title font-weight-bold mb-1 text-primary text-center">EMP V2</h2>
+          <h4 class="card-text mb-2">Welcome To GHRIX Technologies!</h4>
         <p class="card-text mb-2">Please sign-in to your account </p>
+        @if(session()->has('error'))
+                   <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
         <!-- <form class="auth-login-form mt-2" action="/" method="GET"> -->
             <form class="auth-login-form mt-2" method="POST" action="{{ route('login') }}">
                 @csrf
@@ -83,12 +89,17 @@ $configData = Helper::applClasses();
                     </a>
                     @endif
                   </div>
-                  <div class="input-group input-group-merge form-password-toggle">
-                    <input type="password" class="form-control form-control-merge" id="login-password" name="password" tabindex="2" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="login-password" />
+                  <div class="input-group input-group-merge form-password-toggle @error('password') is-invalid @enderror">
+                    <input type="password" class="form-control form-control-merge @error('password') is-invalid @enderror" id="login-password" name="password" tabindex="2" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="login-password" />
                     <div class="input-group-append">
                       <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                     </div>
                   </div>
+                  @error('password')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
                 </div>
                 <div class="form-group">
                   <div class="custom-control custom-checkbox">

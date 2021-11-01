@@ -56,8 +56,8 @@ $configData = Helper::applClasses();
     <!-- Register-->
     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
       <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-          <h2 class="card-title font-weight-bold mb-1">Welcome EMP V2</h2>
-          <p class="card-text mb-2">Employee Registration!</p>
+           <h2 class="card-title font-weight-bold mb-1 text-primary text-center">EMP V2</h2>
+          <h4 class="card-text mb-2">Welcome To GHRIX Technologies!</h4>
           <!-- <form class="auth-register-form mt-2" action="/" method="GET"> -->
             <form class="auth-register-form mt-2" method="POST" action="{{ route('register') }}">
                 @csrf

@@ -17,7 +17,10 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +32,20 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+//Akhtar Testing
+//Route::get('login-v1', [AuthenticationController::class, 'login_v1'])->name('auth-login-v1');
+/*Route::get('register', [RegisterController::class, 'register']);
+Route::post('register', [RegisterController::class, 'store'])->name('register');
+Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::post('login', [LoginController::class, 'authenticate']);
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('forget-password', [ForgotPasswordController::class, 'getEmail']);
+Route::post('forget-password', [ForgotPasswordController::class, 'postEmail']);
+Route::get('reset-password/{token}', [ResetPasswordController::class, 'getPassword']);
+Route::post('reset-password', [ResetPasswordController::class, 'updatePassword']); */
+
 // Main Page Route
-Route::get('/', [DashboardController::class,'dashboardEmployee'])->name('dashboard-employee')->middleware('verified');
+Route::get('/', [DashboardController::class,'dashboardEmployee'])->name('dashboard-employee')->middleware('verified'); //Hide By Akhtar
 //Route::get('/', [DashboardController::class,'dashboardEmployee'])->name('dashboard-employee')->middleware(['auth', 'is_verify_email']);
 //Route::get('/', [DashboardController::class,'dashboardEcommerce'])->name('dashboard-ecommerce')->middleware('verified');
 //Route::get('/', [DashboardController::class, 'dashboardEcommerce'])->name('dashboard-ecommerce');
@@ -38,7 +53,8 @@ Route::get('/', [DashboardController::class,'dashboardEmployee'])->name('dashboa
 //Custom Email
 //Route::get('dashboard', [AuthController::class, 'dashboard'])->middleware(['auth', 'is_verify_email']);
 //Route::get('account/verify/{token}', [AuthController::class, 'verifyAccount'])->name('user.verify');
-Auth::routes(['verify' => true]);
+
+Auth::routes(['verify' => true]); //Hide By Akhtar
 
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {

@@ -31,6 +31,7 @@ class ResetPasswordController extends Controller
 
     public function showResetForm(Request $request, $token = null)
     {
+
       $pageConfigs = [
         'bodyClass' => "bg-full-screen-image",
         'blankPage' => true

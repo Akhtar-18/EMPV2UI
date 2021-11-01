@@ -39,6 +39,10 @@ class RedirectIfAuthenticated
                   case 0:
                      return redirect('/login');
                      break;
+
+                  default:
+                     return redirect('/');
+                     break;
                 }
               }
         }
