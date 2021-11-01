@@ -40,10 +40,6 @@ class LoginController extends Controller
           case 0:
             return '/login';
             break;
-
-          default:
-            return '/';
-          break;
         }
       }
 
