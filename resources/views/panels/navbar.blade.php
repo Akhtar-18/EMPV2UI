@@ -5,7 +5,7 @@
       <li class="nav-item">
         <!-- Brand logo-->
     <a class="brand-logo" href="javascript:void(0);">
-        <img class="img-fluid" src="{{asset('images/emplogo/Logo_mini.png')}}" alt="EMP Logo" />
+        <img class="img-fluid" src="{{asset('images/logo/logominisvg.svg')}}" alt="EMP Logo" />
         <!-- <h2 class="brand-text text-primary ml-1">EMP V2</h2> -->
     </a>
     <!-- /Brand logo-->

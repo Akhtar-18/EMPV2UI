@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, ...$guards)
     {
-        $guards = empty($guards) ? [null] : $guards;
+        /*$guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
@@ -27,6 +27,26 @@ class RedirectIfAuthenticated
             }
         }
 
-        return $next($request);
+        return $next($request); */
+        foreach ($guards as $guard) {
+            if (Auth::guard($guard)->check()) {
+                $approved = Auth::user()->approved;
+
+                switch ($approved) {
+                  case 1:
+                     return redirect('/');
+                     break;
+                  case 0:
+                     return redirect('/login');
+                     break;
+
+                  default:
+                     return redirect('/');
+                     break;
+                }
+              }
+        }
+
+          return $next($request);
     }
 }
