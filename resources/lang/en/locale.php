@@ -3,7 +3,8 @@
 return [
     "Apps & Pages" => "Apps & Pages",
     "User Interface" => "User Interface",
-    "Dashboards" => "Dashboards",
+    "Dashboard" => "Dashboard",
+    "Home"=>"Home",
     "Analytics" => "Analytics",
     "eCommerce" => "eCommerce",
     "Apps" => "Apps",
@@ -136,6 +137,7 @@ return [
     "Extensions" => "Extensions",
     "Media Player" => "Media Player",
     "agGrid Table" => "agGrid Table",
+    "Employees" => "Employees",
     "User Settings" => "User Settings",
     "User" => "User",
     "List" => "List",

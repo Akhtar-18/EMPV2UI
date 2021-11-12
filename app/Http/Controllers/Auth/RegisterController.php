@@ -112,7 +112,7 @@ class RegisterController extends Controller
         //Notification::send($user, new UserNotify($user));
 
 
-        /*if($user)
+        if($user)
         {
             $user->notify(new UserNotify($user));
 
@@ -124,7 +124,7 @@ class RegisterController extends Controller
 
         if ($admin) {
         $admin->notify(new NewUser($user));
-        } */
+        }
 
 
     }

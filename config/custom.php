@@ -3,7 +3,7 @@ return [
     'custom' => [
         'mainLayoutType' => 'vertical', // Options[String]: vertical(default), horizontal
         'theme' => 'dark', // options[String]: 'light'(default), 'dark', 'bordered', 'semi-dark'
-        'sidebarCollapsed' => true, // options[Boolean]: true, false(default) (warning:this option only applies to the vertical theme.)
+        'sidebarCollapsed' => false, // options[Boolean]: true, false(default) (warning:this option only applies to the vertical theme.)
         'navbarColor' => 'bg-primary', // options[String]: bg-primary, bg-info, bg-warning, bg-success, bg-danger, bg-dark (default: '' for #fff)
         'horizontalMenuType' => 'floating', // options[String]: floating(default) / static /sticky (Warning:this option only applies to the Horizontal theme.)
         'verticalMenuNavbarType' => 'floating', // options[String]: floating(default) / static / sticky / hidden (Warning:this option only applies to the vertical theme)
@@ -17,7 +17,7 @@ return [
         'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)
         'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), // Options[String]: ltr(default), rtl
     ],
-    'demo-1' => [
+    /*'demo-1' => [
         'mainLayoutType' => 'vertical', // Options[String]: vertical(default), horizontal
         'theme' => 'light', // options[String]: 'light'(default), 'dark', 'bordered'
         'sidebarCollapsed' => false, // options[Boolean]: true, false(default) (warning:this option only applies to the vertical theme.)
@@ -118,7 +118,7 @@ return [
         'defaultLanguage' => 'en',    //en(default)/de/pt/fr here are four optional language provided in theme
         'blankPage' => false, // options[Boolean]: true, false(default) (warning:only make true if your whole project without navabr and sidebar otherwise override option page wise)
         'direction' => env('MIX_CONTENT_DIRECTION', 'ltr'), // Options[String]: ltr(default), rtl
-    ]
+    ] */
 ];
 
 /* Do changes in this file if you know what it effects to your template. For more infomation refer the <a href="https://pixinvent.com/demo/vuexy-bootstrap-laravel-admin-template//documentation/documentation-laravel.html"> documentation </a> */

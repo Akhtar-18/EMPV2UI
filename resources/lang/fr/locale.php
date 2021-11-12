@@ -3,7 +3,7 @@
 return [
     "Apps & Pages" => "Applications et pages",
     "User Interface" => "Interface utilisateur",
-    "Dashboards" => "Tableau de bord",
+    "Dashboard" => "Tableau de bord",
     "Analytics" => "Analytique",
     "eCommerce" => "commerce électronique",
     "Apps" => "Les applications",

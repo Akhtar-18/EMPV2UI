@@ -21,12 +21,12 @@
             <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon" data-feather="menu"></i></a></li>
           </ul>
           <ul class="nav navbar-nav bookmark-icons">
-            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('app/email')}}" data-toggle="tooltip" data-placement="top" title="Email"><i class="ficon" data-feather="mail"></i></a></li>
-            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('app/chat')}}" data-toggle="tooltip" data-placement="top" title="Chat"><i class="ficon" data-feather="message-square"></i></a></li>
-            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('app/calendar')}}" data-toggle="tooltip" data-placement="top" title="Calendar"><i class="ficon" data-feather="calendar"></i></a></li>
+            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('/')}}" data-toggle="tooltip" data-placement="top" title="Home"><i class="ficon" data-feather="home"></i></a></li>
+            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('page/profile')}}" data-toggle="tooltip" data-placement="top" title="My Profile"><i class="ficon" data-feather="user"></i></a></li>
+            <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('/')}}" data-toggle="tooltip" data-placement="top" title="Employees"><i class="ficon" data-feather="users"></i></a></li>
             <li class="nav-item d-none d-lg-block"><a class="nav-link" href="{{url('app/todo')}}" data-toggle="tooltip" data-placement="top" title="Todo"><i class="ficon" data-feather="check-square"></i></a></li>
           </ul>
-          <ul class="nav navbar-nav">
+          <!---<ul class="nav navbar-nav">
             <li class="nav-item d-none d-lg-block">
               <a class="nav-link bookmark-star">
                 <i class="ficon text-warning" data-feather="star"></i>
@@ -39,10 +39,10 @@
                 <ul class="search-list search-list-bookmark"></ul>
               </div>
             </li>
-          </ul>
+          </ul> -->
         </div>
         <ul class="nav navbar-nav align-items-center ml-auto">
-          <li class="nav-item dropdown dropdown-language">
+          <!-- <li class="nav-item dropdown dropdown-language">
             <a class="nav-link dropdown-toggle" id="dropdown-flag" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="flag-icon flag-icon-us"></i>
               <span class="selected-language">English</span>
@@ -61,17 +61,17 @@
                 <i class="flag-icon flag-icon-pt"></i> Portuguese
               </a>
             </div>
-          </li>
-          <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="{{($configData['theme'] === 'dark') ? 'sun' : 'moon' }}"></i></a></li>
+          </li> -->
+          <!-- <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="{{($configData['theme'] === 'dark') ? 'sun' : 'moon' }}"></i></a></li> -->
           <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon" data-feather="search"></i></a>
             <div class="search-input">
               <div class="search-input-icon"><i data-feather="search"></i></div>
-              <input class="form-control input" type="text" placeholder="Explore Vuexy..." tabindex="-1" data-search="search">
+              <input class="form-control input" type="text" placeholder="Explore Ghrix..." tabindex="-1" data-search="search">
               <div class="search-input-close"><i data-feather="x"></i></div>
               <ul class="search-list search-list-main"></ul>
             </div>
           </li>
-          <li class="nav-item dropdown dropdown-cart mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="shopping-cart"></i><span class="badge badge-pill badge-primary badge-up cart-item-count">6</span></a>
+          <!-- <li class="nav-item dropdown dropdown-cart mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="shopping-cart"></i><span class="badge badge-pill badge-primary badge-up cart-item-count">6</span></a>
             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
               <li class="dropdown-menu-header">
                 <div class="dropdown-header d-flex">
@@ -153,8 +153,8 @@
                 </div><a class="btn btn-primary btn-block" href="{{url('app/ecommerce/checkout')}}">Checkout</a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item dropdown dropdown-notification mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
+          </li> -->
+          <!-- <li class="nav-item dropdown dropdown-notification mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
               <li class="dropdown-menu-header">
                 <div class="dropdown-header d-flex">
@@ -229,12 +229,18 @@
             </li>
             <li class="dropdown-menu-footer"><a class="btn btn-primary btn-block" href="javascript:void(0)">Read all notifications</a></li>
           </ul>
-        </li>
+        </li> -->
         <li class="nav-item dropdown dropdown-user">
           <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="user-nav d-sm-flex d-none">
-              <span class="user-name font-weight-bolder">User</span>
-              <span class="user-status">Admin</span>
+              <span class="user-name font-weight-bolder">
+                @if (Auth::user()->name)
+                {{ Auth::user()->name }}
+                @else
+                {{ Auth::user()->email }}
+                @endif
+              </span>
+              <span class="user-status">{{ Auth::user()->role }}</span>
             </div>
             <span class="avatar">
               <img class="round" src="{{asset('images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40" width="40">

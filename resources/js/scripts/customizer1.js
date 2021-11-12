@@ -22,22 +22,22 @@
     collapseSidebar = $('#collapse-sidebar-switch'),
     contentWrapper = $('.content-wrapper'),
     contentAreaWrapper = $('.content-area-wrapper'),
-    //customizer = $('.customizer'),
+    customizer = $('.customizer'),
     flag = 0;
 
   // Customizer toggle & close button click events  [Remove customizer code from production]
-  /*$('.customizer-toggle').on('click', function (e) {
+  $('.customizer-toggle').on('click', function (e) {
     e.preventDefault();
     $(customizer).toggleClass('open');
   });
   $('.customizer-close').on('click', function () {
     $(customizer).removeClass('open');
-  }); */
+  });
 
   // perfect scrollbar for customizer
-  /*if ($('.customizer-content').length > 0) {
+  if ($('.customizer-content').length > 0) {
     var customizer_content = new PerfectScrollbar('.customizer-content');
-  } */
+  }
 
   /***** Skin Options *****/
   $('.layout-name').on('click', function () {

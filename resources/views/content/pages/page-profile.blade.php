@@ -2,1220 +2,1201 @@
 
 @section('title', 'Profile')
 
+@section('vendor-style')
+  <!-- vendor css files -->
+  <link rel='stylesheet' href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
+  <link rel='stylesheet' href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/file-uploaders/dropzone.min.css')) }}">
+@endsection
 @section('page-style')
   {{-- Page Css files --}}
   <link rel="stylesheet" href="{{ asset(mix('css/base/pages/page-profile.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-file-uploader.css')) }}">
 @endsection
 
 @section('content')
 <div id="user-profile">
   <!-- profile header -->
   <div class="row">
-    <div class="col-12">
-      <div class="card profile-header mb-2">
-        <!-- profile cover photo -->
-        <img
-          class="card-img-top"
-          src="{{asset('images/profile/user-uploads/timeline.jpg')}}"
-          alt="User Profile Image"
-        />
-        <!--/ profile cover photo -->
 
-        <div class="position-relative">
-          <!-- profile picture -->
-          <div class="profile-img-container d-flex align-items-center">
-            <div class="profile-img">
-              <img
-                src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
-                class="rounded img-fluid"
-                alt="Card image"
-              />
-            </div>
-            <!-- profile title -->
-            <div class="profile-title ml-3">
-              <h2 class="text-white">Kitty Allanson</h2>
-              <p class="text-white">UI/UX Designer</p>
-            </div>
-          </div>
-        </div>
 
-        <!-- tabs pill -->
-        <div class="profile-header-nav">
-          <!-- navbar -->
-          <nav class="navbar navbar-expand-md navbar-light justify-content-end justify-content-md-between w-100">
-            <button
-              class="btn btn-icon navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <i data-feather="align-justify" class="font-medium-5"></i>
-            </button>
 
-            <!-- collapse  -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <div class="profile-tabs d-flex justify-content-between flex-wrap mt-1 mt-md-0">
-                <ul class="nav nav-pills mb-0">
-                  <li class="nav-item">
-                    <a class="nav-link font-weight-bold active" href="javascript:void(0)">
-                      <span class="d-none d-md-block">Feed</span>
-                      <i data-feather="rss" class="d-block d-md-none"></i>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="javascript:void(0)">
-                      <span class="d-none d-md-block">About</span>
-                      <i data-feather="info" class="d-block d-md-none"></i>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="javascript:void(0)">
-                      <span class="d-none d-md-block">Photos</span>
-                      <i data-feather="image" class="d-block d-md-none"></i>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link font-weight-bold" href="javascript:void(0)">
-                      <span class="d-none d-md-block">Friends</span>
-                      <i data-feather="users" class="d-block d-md-none"></i>
-                    </a>
-                  </li>
-                </ul>
-                <!-- edit button -->
-                <button class="btn btn-primary">
-                  <i data-feather="edit" class="d-block d-md-none"></i>
-                  <span class="font-weight-bold d-none d-md-block">Edit</span>
-                </button>
+  <!-- Basic pills starts -->
+  <div class="col-md-12">
+    <div class="card">
+        <div class="card profile-header mb-2">
+            <!-- profile cover photo -->
+            <img
+              class="card-img-top"
+              src="{{asset('images/profile/user-uploads/timeline.jpg')}}"
+              alt="User Profile Image"
+            />
+            <!--/ profile cover photo -->
+
+            <div class="position-relative">
+              <!-- profile picture -->
+              <div class="profile-img-container d-flex align-items-center">
+                <div class="profile-img">
+                  <img
+                    src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
+                    class="rounded img-fluid"
+                    alt="Card image"
+                  />
+                </div>
+                <!-- profile title -->
+                <div class="profile-title ml-3">
+                  <h2 class="text-white">Kitty Allanson</h2>
+                  <p class="text-white">UI/UX Designer</p>
+                </div>
               </div>
             </div>
-            <!--/ collapse  -->
-          </nav>
-          <!--/ navbar -->
+
+            <!-- tabs pill -->
+            <div class="profile-header-nav">
+              <!-- navbar -->
+              <nav class="navbar navbar-expand-md navbar-light justify-content-end justify-content-md-between w-100">
+                <button
+                  class="btn btn-icon navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <i data-feather="align-justify" class="font-medium-5"></i>
+                </button>
+
+                <!-- collapse  -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <div class="profile-tabs d-flex justify-content-between flex-wrap mt-1 mt-md-0">
+                    <ul class="nav nav-pills mb-0">
+                      <!-- <li class="nav-item">
+                        <a class="nav-link font-weight-bold active" href="javascript:void(0)">
+                          <span class="d-none d-md-block">Feed</span>
+                          <i data-feather="rss" class="d-block d-md-none"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="javascript:void(0)">
+                          <span class="d-none d-md-block">About</span>
+                          <i data-feather="info" class="d-block d-md-none"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="javascript:void(0)">
+                          <span class="d-none d-md-block">Photos</span>
+                          <i data-feather="image" class="d-block d-md-none"></i>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link font-weight-bold" href="javascript:void(0)">
+                          <span class="d-none d-md-block">Friends</span>
+                          <i data-feather="users" class="d-block d-md-none"></i>
+                        </a>
+                      </li> -->
+                      <li class="nav-item">
+                          <a class="nav-link font-weight-bold active" id="general-tab" data-toggle="pill" href="#general" aria-expanded="true">
+                              <span class="d-none d-md-block">General</span>
+                            <i data-feather="home" class="d-block d-md-none"></i>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="leave-tab" data-toggle="pill" href="#leave" aria-expanded="false">Leave</a>
+                        </li>
+                        <!-- Dropdown -->
+                        <!-- <li class="nav-item dropdown">
+                          <a
+                            class="nav-link dropdown-toggle"
+                            data-toggle="dropdown"
+                            href="javascript:void(0);"
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            Dropdown
+                          </a>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" id="dropdown1-tab" href="#dropdown1" data-toggle="pill" aria-expanded="true"
+                              >@fat</a
+                            >
+                            <a class="dropdown-item" id="dropdown2-tab" href="#dropdown2" data-toggle="pill" aria-expanded="true"
+                              >@mdo</a
+                            >
+                          </div>
+                        </li> -->
+                        <li class="nav-item">
+                          <a class="nav-link" id="assets-tab" data-toggle="pill" href="#assets" aria-expanded="false">Assets</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="doc-tab" data-toggle="pill" href="#doc" aria-expanded="false">Documents</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="payroll-tab" data-toggle="pill" href="#payroll" aria-expanded="false">Payroll</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="attend-tab" data-toggle="pill" href="#attend" aria-expanded="false">Attendance</a>
+                        </li>
+                    </ul>
+                    <!-- edit button -->
+                    <!-- <button class="btn btn-primary">
+                      <i data-feather="edit" class="d-block d-md-none"></i>
+                      <span class="font-weight-bold d-none d-md-block">Edit</span>
+                    </button> -->
+                  </div>
+                </div>
+                <!--/ collapse  -->
+              </nav>
+              <!--/ navbar -->
+            </div>
+          </div>
+      <!-- <div class="card-header">
+        <div class="row col-12">
+
+          </div>
+      </div> -->
+      <div class="card-body">
+        <!-- <ul class="nav nav-pills">
+
+        </ul> -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="general" aria-labelledby="general-tab" aria-expanded="true">
+            <!-- <p> General</p> -->
+
+            <!-- Accordion with margin start -->
+<section id="accordion-with-margin">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card collapse-icon">
+          <div class="card-header">
+            <h4 class="card-title">General Information</h4>
+          </div>
+          <div class="card-body">
+            <!-- <p class="card-text">
+              To create a collapse with margin use <code>.collapse-margin</code> class as a wrapper for your collapse
+              header.
+            </p> -->
+            <div class="collapse-margin" id="accordionExample">
+              <div class="card">
+                <div
+                  class="card-header bg-primary"
+                  id="headingOne"
+                  data-toggle="collapse"
+                  role="button"
+                  data-target="#collapseOne"
+                  aria-expanded="false"
+                  aria-controls="collapseOne"
+                >
+                  <span class="lead collapse-title"> Basic Information </span>
+                </div>
+                <!-- Change data-parent="#accordionExample" to current object like data-parent="#collapseOne"  for closing or opening only particular collapsible -->
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#collapseOne">
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="first-name">First Name</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="first-name" class="form-control" name="fname" placeholder="First Name" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="employee-id">Employee ID</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="employee-id" class="form-control" name="empid" placeholder="Employee ID" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="skype-id">Skype ID</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="skype-id" class="form-control" name="skypeid" placeholder="Skype ID" />
+                                  </div>
+                                  <!-- <div class="col-sm-3 col-form-label">
+                                    <label for="contact-info">Mobile</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="number" id="contact-info" class="form-control" name="contact" placeholder="Mobile" />
+                                  </div> -->
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="medical-no">Medical Emergency</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="number" id="medical-no" class="form-control" name="medicalno" placeholder="Medical Emergency" />
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="last-name">Last Name</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="last-name" class="form-control" name="lname" placeholder="Last Name" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="email-id">Email</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="email" id="email-id" class="form-control" name="email-id" placeholder="Email" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="skills">Skills</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="skills" class="form-control" name="skills" placeholder="Skills" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="emergency-no">Emergency No</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="number" id="emergency-no" class="form-control" name="emergencyno" placeholder="Emergency No" />
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 offset-md-3">
+                          <button type="reset" class="btn btn-primary mr-1">Submit</button>
+                          <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div
+                  class="card-header bg-primary"
+                  id="headingTwo"
+                  data-toggle="collapse"
+                  role="button"
+                  data-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  <span class="lead collapse-title"> Work </span>
+                </div>
+                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#collapseTwo">
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="dept">Department</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="dept" class="form-control" name="dept" placeholder="Department" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="manager-name">Reporting To</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="manager-name" class="form-control" name="manager-name" placeholder="Manager Name" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="source-hire">Source of Hire</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="source-hire" class="form-control" name="source-hire" placeholder="Source of Hire" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="work-phone">Work Phone</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="number" id="work-phone" class="form-control" name="workphone" placeholder="Work Phone" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="biometric-id">Biometric ID</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="biometric-id" class="form-control" name="biometricid" placeholder="Biometric ID" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="contract-start-date"">Contract Start Date</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="contract-start-date" class="form-control flatpickr" name="contractstartdate" placeholder="Contract Start date" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="ipaddr">IP Address</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="ipaddr" class="form-control" name="ipaddress" placeholder="IP Address" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="workshift">Work Shift</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="workshift" class="form-control" name="workshift" placeholder="Work Shift" />
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="title">Title</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="title" class="form-control" name="title" placeholder="Title" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-3 col-form-label">
+                                        <label for="date-of-hire">Date of Hire</label>
+                                      </div>
+                                      <div class="col-sm-9">
+                                        <input type="text" id="date-of-hire" class="form-control flatpickr" name="dateofhire" placeholder="Date of Hire" />
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="employee-status">Employee Status</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="employee-status" class="form-control" name="employeestatus" placeholder="Employee Status" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="employee-type">Employee Type</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="employee-type" class="form-control" name="employeetype" placeholder="Employee Type" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="contract-period">Contract Period</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="contract-period" class="form-control" name="contractperiod" placeholder="Contract Period" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="contract-end-date">Contract End Date</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="contract-end-date" class="form-control" name="contractenddate" placeholder="Contract End Date" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="pay-method">Payment Method</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="pay-method" class="form-control" name="paymethod" placeholder="Payment Method" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="hubstaff-id">Hubstaff ID</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="hubstaff-id" class="form-control" name="hubstaffid" placeholder="Hubstaff ID" />
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 offset-md-3">
+                          <button type="reset" class="btn btn-primary mr-1">Submit</button>
+                          <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div
+                  class="card-header"
+                  id="headingThree"
+                  data-toggle="collapse"
+                  role="button"
+                  data-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  <span class="lead collapse-title"> Personal Details </span>
+                </div>
+                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#collapseThree">
+                  <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="addr1">Address 1</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="addr1" class="form-control" name="addr1" placeholder="Address 1" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="city">City</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="city" class="form-control" name="city" placeholder="City" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="state">State</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="state" class="form-control" name="state" placeholder="State" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="mobile">Mobile</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="number" id="mobile" class="form-control" name="mobile" placeholder="Mobile No" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="dob">Date of Birth</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="dob" class="form-control flatpickr" name="dob" placeholder="Date of Birth" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="nationality">Nationality</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="nationality" class="form-control" name="nationality" placeholder="Nationality" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="driving-license">Driving License</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="driving-license" class="form-control" name="drivinglicense" placeholder="Driving License" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="father-name">Father Name</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="father-name" class="form-control" name="fathername" placeholder="Father Name" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="pancard">Pan Card</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="pancard" class="form-control" name="pancard" placeholder="Pan Card" />
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="addr2">Address 2</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="addr2" class="form-control" name="addr2" placeholder="Address 2" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-sm-3 col-form-label">
+                                        <label for="country">Country</label>
+                                      </div>
+                                      <div class="col-sm-9">
+                                        <input type="text" id="country" class="form-control" name="country" placeholder="Country" />
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="postal-code">Postal Code</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="postal-code" class="form-control" name="postalcode" placeholder="Postal Code" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="other-email">Other Email</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="other-email" class="form-control" name="otheremail" placeholder="Other Email" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="gender">Gender</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="gender" class="form-control" name="gender" placeholder="Gender" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="marital-status">Marital Status</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="marital-status" class="form-control" name="maritalstatus" placeholder="Marital Status" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="hobby">Hobbies</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="hobby" class="form-control" name="hobby" placeholder="Hobbies" />
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group row">
+                                  <div class="col-sm-3 col-form-label">
+                                    <label for="adhaar">Adhaar Card</label>
+                                  </div>
+                                  <div class="col-sm-9">
+                                    <input type="text" id="adhaar" class="form-control" name="adhaar" placeholder="Adhaar Card" />
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9 offset-md-3">
+                          <button type="reset" class="btn btn-primary mr-1">Submit</button>
+                          <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div
+                  class="card-header"
+                  id="headingFour"
+                  data-toggle="collapse"
+                  role="button"
+                  data-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  <span class="lead collapse-title"> Work Experience </span>
+                </div>
+                <div id="collapseFour" class="collapse show" aria-labelledby="headingFour" data-parent="#collapseFour">
+                  <div class="card-body">
+
+                    <!-- Borderless table start -->
+<div class="row" id="table-borderless">
+    <div class="col-12">
+      <div class="card">
+        <!-- <div class="card-header">
+          <h4 class="card-title">Borderless Table</h4>
+        </div> -->
+        <!-- <div class="card-body">
+          <p class="card-text">
+            Add <code>.table-borderless</code> for a table without borders. It can also be used on dark tables.
+          </p>
+        </div> -->
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>Previous Company</th>
+                <th>Job Title</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Job Description</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
-  <!--/ profile header -->
-
-  <!-- profile info section -->
-  <section id="profile-info">
-    <div class="row">
-      <!-- left profile info section -->
-      <div class="col-lg-3 col-12 order-2 order-lg-1">
-        <!-- about -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="mb-75">About</h5>
-            <p class="card-text">
-              Tart I love sugar plum I love oat cake. Sweet ⭐️ roll caramels I love jujubes. Topping cake wafer.
-            </p>
-            <div class="mt-2">
-              <h5 class="mb-75">Joined:</h5>
-              <p class="card-text">November 15, 2015</p>
-            </div>
-            <div class="mt-2">
-              <h5 class="mb-75">Lives:</h5>
-              <p class="card-text">New York, USA</p>
-            </div>
-            <div class="mt-2">
-              <h5 class="mb-75">Email:</h5>
-              <p class="card-text">bucketful@fiendhead.org</p>
-            </div>
-            <div class="mt-2">
-              <h5 class="mb-50">Website:</h5>
-              <p class="card-text mb-0">www.pixinvent.com</p>
-            </div>
-          </div>
-        </div>
-        <!--/ about -->
-
-        <!-- suggestion pages -->
-        <div class="card">
-          <div class="card-body profile-suggestion">
-            <h5 class="mb-2">Suggested Pages</h5>
-            <!-- user suggestions -->
-            <div class="d-flex justify-content-start align-items-center mb-1">
-              <div class="avatar mr-1">
-                <img src="{{asset('images/avatars/12-small.png')}}" alt="avatar img" height="40" width="40" />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Peter Reed</h6>
-                <small class="text-muted">Company</small>
-              </div>
-              <div class="profile-star ml-auto"><i data-feather="star" class="font-medium-3"></i></div>
-            </div>
-            <!-- user suggestions -->
-            <div class="d-flex justify-content-start align-items-center mb-1">
-              <div class="avatar mr-1">
-                <img src="{{asset('images/avatars/1-small.png')}}" alt="avatar" height="40" width="40" />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Harriett Adkins</h6>
-                <small class="text-muted">Company</small>
-              </div>
-              <div class="profile-star ml-auto"><i data-feather="star" class="font-medium-3"></i></div>
-            </div>
-            <!-- user suggestions -->
-            <div class="d-flex justify-content-start align-items-center mb-1">
-              <div class="avatar mr-1">
-                <img src="{{asset('images/avatars/10-small.png')}}" alt="avatar" height="40" width="40" />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Juan Weaver</h6>
-                <small class="text-muted">Company</small>
-              </div>
-              <div class="profile-star ml-auto"><i data-feather="star" class="font-medium-3"></i></div>
-            </div>
-            <!-- user suggestions -->
-            <div class="d-flex justify-content-start align-items-center mb-1">
-              <div class="avatar mr-1">
-                <img src="{{asset('images/avatars/3-small.png')}}" alt="avatar img" height="40" width="40" />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Claudia Chandler</h6>
-                <small class="text-muted">Company</small>
-              </div>
-              <div class="profile-star ml-auto"><i data-feather="star" class="font-medium-3"></i></div>
-            </div>
-            <!-- user suggestions -->
-            <div class="d-flex justify-content-start align-items-center mb-1">
-              <div class="avatar mr-1">
-                <img src="{{asset('images/avatars/5-small.png')}}" alt="avatar img" height="40" width="40" />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Earl Briggs</h6>
-                <small class="text-muted">Company</small>
-              </div>
-              <div class="profile-star ml-auto">
-                <i data-feather="star" class="profile-favorite font-medium-3"></i>
-              </div>
-            </div>
-            <!-- user suggestions -->
-            <div class="d-flex justify-content-start align-items-center">
-              <div class="avatar mr-1">
-                <img src="{{asset('images/avatars/6-small.png')}}" alt="avatar img" height="40" width="40" />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Jonathan Lyons</h6>
-                <small class="text-muted">Beauty Store</small>
-              </div>
-              <div class="profile-star ml-auto"><i data-feather="star" class="font-medium-3"></i></div>
-            </div>
-          </div>
-        </div>
-        <!--/ suggestion pages -->
-
-        <!-- twitter feed card -->
-        <div class="card">
-          <div class="card-body">
-            <h5>Twitter Feeds</h5>
-            <!-- twitter feed -->
-            <div class="profile-twitter-feed mt-1">
-              <div class="d-flex justify-content-start align-items-center mb-1">
-                <div class="avatar mr-1">
-                  <img src="{{asset('images/avatars/5-small.png')}}" alt="avatar img" height="40" width="40" />
-                </div>
-                <div class="profile-user-info">
-                  <h6 class="mb-0">Gertrude Stevens</h6>
-                  <a href="javascript:void(0)">
-                    <small class="text-muted">@tiana59</small>
-                    <i data-feather="check-circle"></i>
-                  </a>
-                </div>
-                <div class="profile-star ml-auto">
-                  <i data-feather="star" class="font-medium-3"></i>
-                </div>
-              </div>
-              <p class="card-text mb-50">I love cookie chupa chups sweet tart apple pie ⭐️ chocolate bar.</p>
-              <a href="javascript:void(0)">
-                <small>#design #fasion</small>
-              </a>
-            </div>
-            <!-- twitter feed -->
-            <div class="profile-twitter-feed mt-2">
-              <div class="d-flex justify-content-start align-items-center mb-1">
-                <div class="avatar mr-1">
-                  <img src="{{asset('images/avatars/12-small.png')}}" alt="avatar img" height="40" width="40" />
-                </div>
-                <div class="profile-user-info">
-                  <h6 class="mb-0">Lura Jones</h6>
-                  <a href="javascript:void(0)">
-                    <small class="text-muted">@tiana59</small>
-                    <i data-feather="check-circle"></i>
-                  </a>
-                </div>
-                <div class="profile-star ml-auto">
-                  <i data-feather="star" class="font-medium-3 profile-favorite"></i>
-                </div>
-              </div>
-              <p class="card-text mb-50">Halvah I love powder jelly I love cheesecake cotton candy. 😍</p>
-              <a href="javascript:void(0)">
-                <small>#vuejs #code #coffeez</small>
-              </a>
-            </div>
-            <!-- twitter feed -->
-            <div class="profile-twitter-feed mt-2">
-              <div class="d-flex justify-content-start align-items-center mb-1">
-                <div class="avatar mr-1">
-                  <img src="{{asset('images/avatars/1-small.png')}}" alt="avatar img" height="40" width="40" />
-                </div>
-                <div class="profile-user-info">
-                  <h6 class="mb-0">Norman Gross</h6>
-                  <a href="javascript:void(0)">
-                    <small class="text-muted">@tiana59</small>
-                    <i data-feather="check-circle"></i>
-                  </a>
-                </div>
-                <div class="profile-star ml-auto">
-                  <i data-feather="star" class="font-medium-3"></i>
-                </div>
-              </div>
-              <p class="card-text mb-50">Candy jelly beans powder brownie biscuit. Jelly marzipan oat cake cake.</p>
-              <a href="javascript:void(0)">
-                <small>#sketch #uiux #figma</small>
-              </a>
-            </div>
-          </div>
-        </div>
-        <!--/ twitter feed card -->
-      </div>
-      <!--/ left profile info section -->
-
-      <!-- center profile info section -->
-      <div class="col-lg-6 col-12 order-1 order-lg-2">
-        <!-- post 1 -->
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-start align-items-center mb-1">
-              <!-- avatar -->
-              <div class="avatar mr-1">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-18.jpg')}}"
-                  alt="avatar img"
-                  height="50"
-                  width="50"
-                />
-              </div>
-              <!--/ avatar -->
-              <div class="profile-user-info">
-                <h6 class="mb-0">Leeanna Alvord</h6>
-                <small class="text-muted">12 Dec 2018 at 1:16 AM</small>
-              </div>
-            </div>
-            <p class="card-text">
-              Wonderful Machine· A well-written bio allows viewers to get to know a photographer beyond the work. This
-              can make the difference when presenting to clients who are looking for the perfect fit.
-            </p>
-            <!-- post img -->
-            <img
-              class="img-fluid rounded mb-75"
-              src="{{asset('images/profile/post-media/2.jpg')}}"
-              alt="avatar img"
-            />
-            <!--/ post img -->
-
-            <!-- like share -->
-            <div class="row d-flex justify-content-start align-items-center flex-wrap pb-50">
-              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-start mb-2">
-                <a href="javascript:void(0)" class="d-flex align-items-center text-muted text-nowrap">
-                  <i data-feather="heart" class="profile-likes font-medium-3 mr-50"></i>
-                  <span>1.25k</span>
-                </a>
-
-                <!-- avatar group with tooltip -->
-                <div class="d-flex align-items-center">
-                  <div class="avatar-group ml-1">
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Trina Lynes"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-1.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Lilian Nenez"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Alberto Glotzbach"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-3.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="George Nordic"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-5.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Vinnie Mostowy"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-4.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
+  <!-- Borderless table end -->
+  <br/>
+  <button type="reset" class="btn btn-primary mr-1"><i class="ficon" data-feather="plus"></i> Add Experience</button>
                   </div>
-                  <a href="javascript:void(0)" class="text-muted text-nowrap ml-50">+140 more</a>
                 </div>
-                <!-- avatar group with tooltip -->
               </div>
 
-              <!-- share and like count and icons -->
-              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-end align-items-center mb-2">
-                <a href="javascript:void(0)" class="text-nowrap">
-                  <i data-feather="message-square" class="text-body font-medium-3 mr-50"></i>
-                  <span class="text-muted mr-1">1.25k</span>
-                </a>
-
-                <a href="javascript:void(0)" class="text-nowrap">
-                  <i data-feather="share-2" class="text-body font-medium-3 mx-50"></i>
-                  <span class="text-muted">1.25k</span>
-                </a>
-              </div>
-              <!-- share and like count and icons -->
-            </div>
-            <!-- like share -->
-
-            <!-- comments -->
-            <div class="d-flex align-items-start mb-1">
-              <div class="avatar mt-25 mr-75">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-6.jpg')}}"
-                  alt="Avatar"
-                  height="34"
-                  width="34"
-                />
-              </div>
-              <div class="profile-user-info w-100">
-                <div class="d-flex align-items-center justify-content-between">
-                  <h6 class="mb-0">Kitty Allanson</h6>
-                  <a href="javascript:void(0)">
-                    <i data-feather="heart" class="text-body font-medium-3"></i>
-                    <span class="align-middle text-muted">34</span>
-                  </a>
+              <div class="card">
+                <div
+                  class="card-header"
+                  id="headingFive"
+                  data-toggle="collapse"
+                  role="button"
+                  data-target="#collapseFive"
+                  aria-expanded="false"
+                  aria-controls="collapseFive"
+                >
+                  <span class="lead collapse-title"> Education </span>
                 </div>
-                <small>Easy & smart fuzzy search🕵🏻 functionality which enables users to search quickly.</small>
-              </div>
-            </div>
-            <div class="d-flex align-items-start mb-1">
-              <div class="avatar mt-25 mr-75">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-8.jpg')}}"
-                  alt="Avatar"
-                  height="34"
-                  width="34"
-                />
-              </div>
-              <div class="profile-user-info w-100">
-                <div class="d-flex align-items-center justify-content-between">
-                  <h6 class="mb-0">Jackey Potter</h6>
-                  <a href="javascript:void(0)">
-                    <i data-feather="heart" class="profile-likes font-medium-3"></i>
-                    <span class="align-middle text-muted">61</span>
-                  </a>
-                </div>
-                <small>
-                  Unlimited color🖌 options allows you to set your application color as per your branding 🤪.
-                </small>
-              </div>
-            </div>
-            <!--/ comments -->
-
-            <!-- comment box -->
-            <fieldset class="form-label-group mb-75">
-              <textarea class="form-control" id="label-textarea" rows="3" placeholder="Add Comment"></textarea>
-              <label for="label-textarea">Add Comment</label>
-            </fieldset>
-            <!--/ comment box -->
-            <button type="button" class="btn btn-sm btn-primary">Post Comment</button>
-          </div>
+                <div id="collapseFive" class="collapse show" aria-labelledby="headingFive" data-parent="#collapseFive">
+                  <div class="card-body">
+                    <!-- Borderless table start -->
+<div class="row" id="table-borderless">
+    <div class="col-12">
+      <div class="card">
+        <!-- <div class="card-header">
+          <h4 class="card-title">Borderless Table</h4>
+        </div> -->
+        <!-- <div class="card-body">
+          <p class="card-text">
+            Add <code>.table-borderless</code> for a table without borders. It can also be used on dark tables.
+          </p>
+        </div> -->
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>School Name</th>
+                <th>Degree</th>
+                <th>Field of Study</th>
+                <th>Year of Completion</th>
+                <th>Additional Notes</th>
+                <th>Interests</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+          </table>
         </div>
-        <!--/ post 1 -->
-
-        <!-- post 2 -->
-        <div class="card">
-          <div class="card-body">
-            <!-- avatar image and title -->
-            <div class="d-flex justify-content-start align-items-center mb-1">
-              <div class="avatar mr-1">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-22.jpg')}}"
-                  alt="avatar img"
-                  height="50"
-                  width="50"
-                />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Rosa Walters</h6>
-                <small class="text-muted">11 Dec 2019 at 1:16 AM</small>
-              </div>
-            </div>
-            <!--/ avatar image and title -->
-            <p class="card-text">
-              Wonderful Machine· A well-written bio allows viewers to get to know a photographer beyond the work. This
-              can make the difference when presenting to clients who are looking for the perfect fit.
-            </p>
-            <!-- post img -->
-            <img
-              class="img-fluid rounded mb-75"
-              src="{{asset('images/profile/post-media/25.jpg')}}"
-              alt="avatar img"
-            />
-            <!--/ post img -->
-
-            <!-- like share -->
-            <div class="row d-flex justify-content-start align-items-center flex-wrap pb-50">
-              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-start mb-2">
-                <a href="javascript:void(0)" class="d-flex align-items-center text-muted text-nowrap">
-                  <i data-feather="heart" class="profile-likes font-medium-3 mr-50"></i>
-                  <span>1.25k</span>
-                </a>
-
-                <!-- avatar group with tooltip -->
-                <div class="d-flex align-items-center">
-                  <div class="avatar-group ml-1">
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Trina Lynes"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-1.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Lilian Nenez"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-2.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Alberto Glotzbach"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-3.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="George Nordic"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-5.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Vinnie Mostowy"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-4.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                  </div>
-                  <a href="javascript:void(0)" class="text-muted text-nowrap ml-50">+271 more</a>
-                </div>
-                <!-- avatar group with tooltip -->
-              </div>
-
-              <!-- share and like count and icons -->
-              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-end align-items-center mb-2">
-                <a href="javascript:void(0)" class="text-nowrap">
-                  <i data-feather="message-square" class="text-body font-medium-3 mr-50"></i>
-                  <span class="text-muted mr-1">1.25k</span>
-                </a>
-
-                <a href="javascript:void(0)" class="text-nowrap">
-                  <i data-feather="share-2" class="text-body font-medium-3 mx-50"></i>
-                  <span class="text-muted">1.25k</span>
-                </a>
-              </div>
-              <!-- share and like count and icons -->
-            </div>
-            <!-- like share -->
-
-            <!-- comments -->
-            <div class="d-flex align-items-start mb-1">
-              <div class="avatar mt-25 mr-50">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-3.jpg')}}"
-                  alt="Avatar"
-                  height="34"
-                  width="34"
-                />
-              </div>
-              <div class="profile-user-info w-100">
-                <div class="d-flex align-items-center justify-content-between">
-                  <h6 class="mb-0">Kitty Allanson</h6>
-                  <a href="javascript:void(0)">
-                    <i data-feather="heart" class="text-body font-medium-3"></i>
-                    <span class="align-middle text-muted">34</span>
-                  </a>
-                </div>
-                <small>Easy & smart fuzzy search🕵🏻 functionality which enables users to search quickly. </small>
-              </div>
-            </div>
-            <!--/ comments -->
-
-            <!-- comment text area -->
-            <fieldset class="form-label-group mb-75">
-              <textarea class="form-control" id="label-textarea2" rows="3" placeholder="Add Comment"></textarea>
-              <label for="label-textarea2">Add Comment</label>
-            </fieldset>
-            <!--/ comment text area -->
-            <button type="button" class="btn btn-sm btn-primary">Post Comment</button>
-          </div>
-        </div>
-        <!--/ post 2 -->
-
-        <!-- post 3 -->
-        <div class="card">
-          <div class="card-body">
-            <!-- avatar image title -->
-            <div class="d-flex justify-content-start align-items-center mb-1">
-              <div class="avatar mr-1">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-15.jpg')}}"
-                  alt="avatar img"
-                  height="50"
-                  width="50"
-                />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Charles Watson</h6>
-                <small class="text-muted">12 Dec 2019 at 1:16 AM</small>
-              </div>
-            </div>
-            <!--/ avatar image title -->
-
-            <p class="card-text">
-              Wonderful Machine· A well-written bio allows viewers to get to know a photographer beyond the work. This
-              can make the difference when presenting to clients who are looking for the perfect fit.
-            </p>
-
-            <!-- video -->
-            <iframe
-              src="https://www.youtube.com/embed/6stlCkUDG_s"
-              class="w-100 rounded border-0 height-250 mb-50"
-            ></iframe>
-            <!--/ video -->
-
-            <!-- like share -->
-            <div class="row d-flex justify-content-start align-items-center flex-wrap pb-50">
-              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-start mb-2">
-                <a href="javascript:void(0)" class="d-flex align-items-center text-muted text-nowrap">
-                  <i data-feather="heart" class="profile-likes font-medium-3 mr-50"></i>
-                  <span>1.25k</span>
-                </a>
-
-                <!-- avatar group with tooltip -->
-                <div class="d-flex align-items-center">
-                  <div class="avatar-group ml-1">
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Vinnie Mostowy"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-5.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Elicia Rieske"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-7.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Julee Rossignol"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-10.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Darcey Nooner"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-8.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                    <div
-                      data-toggle="tooltip"
-                      data-popup="tooltip-custom"
-                      data-placement="bottom"
-                      data-original-title="Elicia Rieske"
-                      class="avatar pull-up"
-                    >
-                      <img
-                        src="{{asset('images/portrait/small/avatar-s-7.jpg')}}"
-                        alt="Avatar"
-                        height="26"
-                        width="26"
-                      />
-                    </div>
-                  </div>
-                  <a href="javascript:void(0)" class="text-muted text-nowrap ml-50">+264 more</a>
-                </div>
-                <!-- avatar group with tooltip -->
-              </div>
-
-              <!-- share and like count and icons -->
-              <div class="col-sm-6 d-flex justify-content-between justify-content-sm-end align-items-center mb-2">
-                <a href="javascript:void(0)" class="text-nowrap">
-                  <i data-feather="message-square" class="text-body font-medium-3 mr-50"></i>
-                  <span class="text-muted mr-1">1.25k</span>
-                </a>
-
-                <a href="javascript:void(0)" class="text-nowrap">
-                  <i data-feather="share-2" class="text-body font-medium-3 mx-50"></i>
-                  <span class="text-muted">1.25k</span>
-                </a>
-              </div>
-              <!-- share and like count and icons -->
-            </div>
-            <!-- like share -->
-
-            <!-- comment -->
-            <div class="d-flex align-items-start mb-1">
-              <div class="avatar mt-25 mr-50">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-3.jpg')}}"
-                  alt="Avatar"
-                  height="34"
-                  width="34"
-                />
-              </div>
-              <div class="profile-user-info w-100">
-                <div class="d-flex align-content-center justify-content-between">
-                  <h6 class="mb-0">Kitty Allanson</h6>
-                  <a href="javascript:void(0)">
-                    <i data-feather="heart" class="text-body font-medium-3"></i>
-                    <span class="align-middle text-muted">34</span>
-                  </a>
-                </div>
-                <small>Easy & smart fuzzy search🕵🏻 functionality which enables users to search quickly.</small>
-              </div>
-            </div>
-            <!-- comment -->
-
-            <!-- comment text area -->
-            <fieldset class="form-label-group mb-75">
-              <textarea class="form-control" id="label-textarea3" rows="3" placeholder="Add Comment"></textarea>
-              <label for="label-textarea3">Add Comment</label>
-            </fieldset>
-            <!-- comment text area -->
-            <button type="button" class="btn btn-sm btn-primary">Post Comment</button>
-          </div>
-        </div>
-        <!--/ post 3 -->
-      </div>
-      <!--/ center profile info section -->
-
-      <!-- right profile info section -->
-      <div class="col-lg-3 col-12 order-3">
-        <!-- latest profile pictures -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="mb-0">Latest Photos</h5>
-            <div class="row">
-              <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img
-                    src="{{asset('images/profile/user-uploads/user-13.jpg')}}"
-                    class="img-fluid rounded"
-                    alt="avatar img"
-                  />
-                </a>
-              </div>
-              <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img
-                    src="{{asset('images/profile/user-uploads/user-02.jpg')}}"
-                    class="img-fluid rounded"
-                    alt="avatar img"
-                  />
-                </a>
-              </div>
-              <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img
-                    src="{{asset('images/profile/user-uploads/user-03.jpg')}}"
-                    class="img-fluid rounded"
-                    alt="avatar img"
-                  />
-                </a>
-              </div>
-              <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img
-                    src="{{asset('images/profile/user-uploads/user-04.jpg')}}"
-                    class="img-fluid rounded"
-                    alt="avatar img"
-                  />
-                </a>
-              </div>
-              <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img
-                    src="{{asset('images/profile/user-uploads/user-05.jpg')}}"
-                    class="img-fluid rounded"
-                    alt="avatar img"
-                  />
-                </a>
-              </div>
-              <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img
-                    src="{{asset('images/profile/user-uploads/user-06.jpg')}}"
-                    class="img-fluid rounded"
-                    alt="avatar img"
-                  />
-                </a>
-              </div>
-              <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img
-                    src="{{asset('images/profile/user-uploads/user-07.jpg')}}"
-                    class="img-fluid rounded"
-                    alt="avatar img"
-                  />
-                </a>
-              </div>
-              <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img
-                    src="{{asset('images/profile/user-uploads/user-08.jpg')}}"
-                    class="img-fluid rounded"
-                    alt="avatar img"
-                  />
-                </a>
-              </div>
-              <div class="col-md-4 col-6 profile-latest-img">
-                <a href="javascript:void(0)">
-                  <img
-                    src="{{asset('images/profile/user-uploads/user-09.jpg')}}"
-                    class="img-fluid rounded"
-                    alt="avatar img"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!--/ latest profile pictures -->
-
-        <!-- suggestion -->
-        <div class="card">
-          <div class="card-body">
-            <h5>Suggestions</h5>
-            <div class="d-flex justify-content-start align-items-center mt-2">
-              <div class="avatar mr-75">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-9.jpg')}}"
-                  alt="avatar"
-                  height="40"
-                  width="40"
-                />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Peter Reed</h6>
-                <small class="text-muted">6 Mutual Friends</small>
-              </div>
-              <button type="button" class="btn btn-primary btn-icon btn-sm ml-auto">
-                <i data-feather="user-plus"></i>
-              </button>
-            </div>
-            <div class="d-flex justify-content-start align-items-center mt-1">
-              <div class="avatar mr-75">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-6.jpg')}}"
-                  alt="avtar img holder"
-                  height="40"
-                  width="40"
-                />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Harriett Adkins</h6>
-                <small class="text-muted">3 Mutual Friends</small>
-              </div>
-              <button type="button" class="btn btn-primary btn-sm btn-icon ml-auto">
-                <i data-feather="user-plus"></i>
-              </button>
-            </div>
-            <div class="d-flex justify-content-start align-items-center mt-1">
-              <div class="avatar mr-75">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-7.jpg')}}"
-                  alt="avatar"
-                  height="40"
-                  width="40"
-                />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Juan Weaver</h6>
-                <small class="text-muted">1 Mutual Friends</small>
-              </div>
-              <button type="button" class="btn btn-sm btn-primary btn-icon ml-auto">
-                <i data-feather="user-plus"></i>
-              </button>
-            </div>
-            <div class="d-flex justify-content-start align-items-center mt-1">
-              <div class="avatar mr-75">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-8.jpg')}}"
-                  alt="avatar img"
-                  height="40"
-                  width="40"
-                />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Claudia Chandler</h6>
-                <small class="text-muted">16 Mutual Friends</small>
-              </div>
-              <button type="button" class="btn btn-sm btn-primary btn-icon ml-auto">
-                <i data-feather="user-plus"></i>
-              </button>
-            </div>
-            <div class="d-flex justify-content-start align-items-center mt-1">
-              <div class="avatar mr-75">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-1.jpg')}}"
-                  alt="avatar img"
-                  height="40"
-                  width="40"
-                />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Earl Briggs</h6>
-                <small class="text-muted">4 Mutual Friends</small>
-              </div>
-              <button type="button" class="btn btn-sm btn-primary btn-icon ml-auto">
-                <i data-feather="user-plus"></i>
-              </button>
-            </div>
-            <div class="d-flex justify-content-start align-items-center mt-1">
-              <div class="avatar mr-75">
-                <img
-                  src="{{asset('images/portrait/small/avatar-s-10.jpg')}}"
-                  alt="avatar img"
-                  height="40"
-                  width="40"
-                />
-              </div>
-              <div class="profile-user-info">
-                <h6 class="mb-0">Jonathan Lyons</h6>
-                <small class="text-muted">25 Mutual Friends</small>
-              </div>
-              <button type="button" class="btn btn-sm btn-primary btn-icon ml-auto">
-                <i data-feather="user-plus"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <!--/ suggestion -->
-
-        <!-- polls card -->
-        <div class="card">
-          <div class="card-body">
-            <h5 class="mb-1">Polls</h5>
-            <p class="card-text mb-0">Who is the best actor in Marvel Cinematic Universe?</p>
-
-            <!-- polls -->
-            <div class="profile-polls-info mt-2">
-              <!-- custom radio -->
-              <div class="d-flex justify-content-between">
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="bestActorPoll1" name="bestActorPoll" class="custom-control-input" />
-                  <label class="custom-control-label" for="bestActorPoll1">RDJ</label>
-                </div>
-                <div class="text-right">82%</div>
-              </div>
-              <!--/ custom radio -->
-
-              <!-- progressbar -->
-              <div class="progress progress-bar-primary my-50">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  aria-valuenow="58"
-                  aria-valuemin="58"
-                  aria-valuemax="100"
-                  style="width: 82%"
-                ></div>
-              </div>
-              <!--/ progressbar -->
-
-              <!-- avatar group with tooltip -->
-              <div class="avatar-group my-1">
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Tonia Seabold"
-                  class="avatar pull-up"
-                >
-                  <img
-                    src="{{asset('images/portrait/small/avatar-s-12.jpg')}}"
-                    alt="Avatar"
-                    height="26"
-                    width="26"
-                  />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Carissa Dolle"
-                  class="avatar pull-up"
-                >
-                  <img
-                    src="{{asset('images/portrait/small/avatar-s-5.jpg')}}"
-                    alt="Avatar"
-                    height="26"
-                    width="26"
-                  />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Kelle Herrick"
-                  class="avatar pull-up"
-                >
-                  <img
-                    src="{{asset('images/portrait/small/avatar-s-9.jpg')}}"
-                    alt="Avatar"
-                    height="26"
-                    width="26"
-                  />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Len Bregantini"
-                  class="avatar pull-up"
-                >
-                  <img
-                    src="{{asset('images/portrait/small/avatar-s-10.jpg')}}"
-                    alt="Avatar"
-                    height="26"
-                    width="26"
-                  />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="John Doe"
-                  class="avatar pull-up"
-                >
-                  <img
-                    src="{{asset('images/portrait/small/avatar-s-11.jpg')}}"
-                    alt="Avatar"
-                    height="26"
-                    width="26"
-                  />
-                </div>
-              </div>
-              <!--/ avatar group with tooltip -->
-            </div>
-
-            <div class="profile-polls-info mt-2">
-              <div class="d-flex justify-content-between">
-                <!-- custom radio -->
-                <div class="custom-control custom-radio">
-                  <input type="radio" id="bestActorPoll2" name="bestActorPoll" class="custom-control-input" />
-                  <label class="custom-control-label" for="bestActorPoll2">Chris Hemswort</label>
-                </div>
-                <!--/ custom radio -->
-                <div class="text-right">67%</div>
-              </div>
-              <!-- progressbar -->
-              <div class="progress progress-bar-primary my-50">
-                <div
-                  class="progress-bar"
-                  role="progressbar"
-                  aria-valuenow="16"
-                  aria-valuemin="16"
-                  aria-valuemax="100"
-                  style="width: 67%"
-                ></div>
-              </div>
-              <!--/ progressbar -->
-
-              <!-- avatar group with tooltips -->
-              <div class="avatar-group mt-1">
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Liliana Pecor"
-                  class="avatar pull-up"
-                >
-                  <img
-                    src="{{asset('images/portrait/small/avatar-s-9.jpg')}}"
-                    alt="Avatar"
-                    height="26"
-                    width="26"
-                  />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Kasandra NaleVanko"
-                  class="avatar pull-up"
-                >
-                  <img
-                    src="{{asset('images/portrait/small/avatar-s-1.jpg')}}"
-                    alt="Avatar"
-                    height="26"
-                    width="26"
-                  />
-                </div>
-                <div
-                  data-toggle="tooltip"
-                  data-popup="tooltip-custom"
-                  data-placement="bottom"
-                  data-original-title="Jonathan Lyons"
-                  class="avatar pull-up"
-                >
-                  <img
-                    src="{{asset('images/portrait/small/avatar-s-8.jpg')}}"
-                    alt="Avatar"
-                    height="26"
-                    width="26"
-                  />
-                </div>
-              </div>
-              <!--/ avatar group with tooltips-->
-            </div>
-            <!--/ polls -->
-          </div>
-        </div>
-        <!--/ polls card -->
-      </div>
-      <!--/ right profile info section -->
-    </div>
-
-    <!-- reload button -->
-    <div class="row">
-      <div class="col-12 text-center">
-        <button type="button" class="btn btn-sm btn-primary block-element border-0 mb-1">Load More</button>
       </div>
     </div>
-    <!--/ reload button -->
+  </div>
+  <!-- Borderless table end -->
+  <br/>
+  <button type="reset" class="btn btn-primary mr-1"><i class="ficon" data-feather="plus"></i> Add Education</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div
+                  class="card-header"
+                  id="headingSix"
+                  data-toggle="collapse"
+                  role="button"
+                  data-target="#collapseSix"
+                  aria-expanded="false"
+                  aria-controls="collapseSix"
+                >
+                  <span class="lead collapse-title"> Dependents </span>
+                </div>
+                <div id="collapseSix" class="collapse show" aria-labelledby="headingSix" data-parent="#collapseSix">
+                  <div class="card-body">
+                    <!-- Borderless table start -->
+<div class="row" id="table-borderless">
+    <div class="col-12">
+      <div class="card">
+        <!-- <div class="card-header">
+          <h4 class="card-title">Borderless Table</h4>
+        </div> -->
+        <!-- <div class="card-body">
+          <p class="card-text">
+            Add <code>.table-borderless</code> for a table without borders. It can also be used on dark tables.
+          </p>
+        </div> -->
+        <div class="table-responsive">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Realtionship</th>
+                <th>Date of Birth</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Borderless table end -->
+  <br/>
+  <button type="reset" class="btn btn-primary mr-1"><i class="ficon" data-feather="plus"></i> Add Dependent</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
-  <!--/ profile info section -->
+  <!-- Accordion with margin end -->
+
+          </div>
+          <div class="tab-pane" id="leave" role="tabpanel" aria-labelledby="leave-tab" aria-expanded="false">
+            <!-- <p> Leave </p> -->
+
+            <!-- Borderless table start -->
+<div class="row" id="table-striped">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Balances</h4>
+        </div>
+        <!-- <div class="card-body">
+          <p class="card-text">
+            Add <code>.table-borderless</code> for a table without borders. It can also be used on dark tables.
+          </p>
+        </div> -->
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Leave</th>
+                <th>Days</th>
+                <th>Spent</th>
+                <th>Scheduled</th>
+                <th>Available</th>
+                <th>Period</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Borderless table end -->
+
+        <!-- Borderless table start -->
+<div class="row" id="table-striped">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Pending</h4>
+        </div>
+        <!-- <div class="card-body">
+          <p class="card-text">
+            Add <code>.table-borderless</code> for a table without borders. It can also be used on dark tables.
+          </p>
+        </div> -->
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Policy</th>
+                <th>Description</th>
+                <th>Days</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Borderless table end -->
+
+  <!-- Borderless table start -->
+<div class="row" id="table-striped">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">History</h4>
+        </div>
+        <!-- <div class="card-body">
+          <p class="card-text">
+            Add <code>.table-borderless</code> for a table without borders. It can also be used on dark tables.
+          </p>
+        </div> -->
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Policy</th>
+                <th>Description</th>
+                <th>Days</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Borderless table end -->
+
+
+          </div>
+          <!-- <div class="tab-pane" id="dropdown1" role="tabpanel" aria-labelledby="dropdown1-tab" aria-expanded="false">
+            <p>
+              Cake croissant lemon drops gummi bears carrot cake biscuit cupcake croissant. Macaroon lemon drops
+              muffin jelly sugar plum chocolate cupcake danish icing. Soufflé tootsie roll lemon drops sweet roll cake
+              icing cookie halvah cupcake.Chupa chups pie jelly pie tootsie roll dragée cookie caramels sugar plum.
+              Jelly oat cake wafer pie cupcake chupa chups jelly-o gingerbread.
+            </p>
+          </div>
+          <div class="tab-pane" id="dropdown2" role="tabpanel" aria-labelledby="dropdown2-tab" aria-expanded="false">
+            <p>
+              Chocolate croissant cupcake croissant jelly donut. Cheesecake toffee apple pie chocolate bar biscuit
+              tart croissant. Lemon drops danish cookie. Oat cake macaroon icing tart lollipop cookie sweet bear claw.
+              Toffee jelly-o pastry cake dessert chocolate bar jelly beans fruitcake. Dragée sweet fruitcake dragée
+              biscuit halvah wafer gingerbread dessert. Gummies fruitcake brownie gummies tart pudding.
+            </p>
+          </div> -->
+          <div class="tab-pane" id="assets" role="tabpanel" aria-labelledby="assets-tab" aria-expanded="false">
+            <!-- <p> Assets </p> -->
+              <!-- Borderless table start -->
+<div class="row" id="table-striped">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Assets</h4>
+        </div>
+        <!-- <div class="card-body">
+          <p class="card-text">
+            Add <code>.table-borderless</code> for a table without borders. It can also be used on dark tables.
+          </p>
+        </div> -->
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Item Name</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Borderless table end -->
+            <!-- Borderless table start -->
+<div class="row" id="table-striped">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Assets Requests</h4>
+        </div>
+        <!-- <div class="card-body">
+          <p class="card-text">
+            Add <code>.table-borderless</code> for a table without borders. It can also be used on dark tables.
+          </p>
+        </div> -->
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Item Name</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Borderless table end -->
+
+  <button type="reset" class="btn btn-primary mr-1">Request Asset</button>
+          </div>
+          <div class="tab-pane" id="doc" role="tabpanel" aria-labelledby="doc-tab" aria-expanded="false">
+            <!-- <p> Documents </p> -->
+            <!-- button file upload starts -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Employee Documents</h4>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            Please upload your documents.
+          </p>
+          <button id="select-files" class="btn btn-outline-primary mb-1">
+            <i data-feather="file"></i> Upload files
+          </button>
+          <form action="#" class="dropzone dropzone-area" id="dpz-btn-select-files">
+            <div class="dz-message">Drop files here or click button to upload.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- button file upload ends -->
+
+          </div>
+          <div class="tab-pane" id="payroll" role="tabpanel" aria-labelledby="payroll-tab" aria-expanded="false">
+            <p> Payroll </p>
+          </div>
+          <div class="tab-pane" id="attend" role="tabpanel" aria-labelledby="attend-tab" aria-expanded="false">
+            <!-- <p> Attendance </p> -->
+
+            <!--Bar Chart Start -->
+    <div class="col-xl-6 col-12">
+        <div class="card">
+          <div
+            class="card-header d-flex justify-content-between align-items-sm-center align-items-start flex-sm-row flex-column"
+          >
+            <div class="header-left">
+              <h4 class="card-title">Attendance</h4>
+            </div>
+            <div class="header-right d-flex align-items-center mt-sm-0 mt-1">
+              <i data-feather="calendar"></i>
+              <input
+                type="text"
+                class="form-control flat-picker border-0 shadow-none bg-transparent pr-0"
+                placeholder="YYYY-MM-DD"
+              />
+            </div>
+          </div>
+          <div class="card-body">
+            <canvas class="bar-chart-ex chartjs" data-height="400"></canvas>
+          </div>
+        </div>
+      </div>
+      <!-- Bar Chart End -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Basic pills ends -->
 </div>
+<!--/ profile header -->
+
+
+</div>
+@endsection
+
+@section('vendor-script')
+  <!-- vendor files -->
+  <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/forms/validation/jquery.validate.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/file-uploaders/dropzone.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/charts/chart.min.js')) }}"></script>
 @endsection
 
 @section('page-script')
   {{-- Page js files --}}
   <script src="{{ asset(mix('js/scripts/pages/page-profile.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/pages/page-account-settings.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/forms/form-file-uploader.js')) }}"></script>
+  <script src="{{ asset(mix('js/scripts/charts/chart-chartjs1.js')) }}"></script>
 @endsection
